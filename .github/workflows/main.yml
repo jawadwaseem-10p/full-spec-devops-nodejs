@@ -32,6 +32,5 @@ jobs:
         heroku_email: "bitpocketer@gmail.com"
         usedocker: true
     - run: yarn
-    - run: npm i -g nodemon
     - run: cd client & yarn
-    - run: cd .. & yarn dev
+    - run: cd .. & npm run start
