@@ -33,6 +33,6 @@ jobs:
         usedocker: true
     - run: npm install
     - run: cd client
-    - run: npm install
+    - run: cd .. & npm run dev
     - run: npm i -g nodemon
     - run: npm run dev
