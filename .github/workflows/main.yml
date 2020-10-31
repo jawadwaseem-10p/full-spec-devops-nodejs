@@ -32,7 +32,7 @@ jobs:
         heroku_email: "bitpocketer@gmail.com"
         usedocker: true
     - run: npm install
+    - run: npm i -g nodemon
     - run: cd client
     - run: cd .. & npm run dev
-    - run: npm i -g nodemon
     - run: npm run dev
