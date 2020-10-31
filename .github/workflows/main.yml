@@ -35,4 +35,3 @@ jobs:
     - run: npm i -g nodemon
     - run: cd client
     - run: cd .. & npm run dev
-    - run: npm run dev
