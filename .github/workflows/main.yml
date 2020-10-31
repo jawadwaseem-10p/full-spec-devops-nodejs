@@ -31,7 +31,7 @@ jobs:
         heroku_app_name: "full-spec-devops-nodejs"
         heroku_email: "bitpocketer@gmail.com"
         usedocker: true
-    - run: npm install
+    - run: yarn
     - run: npm i -g nodemon
-    - run: cd client & npm install
-    - run: cd .. & npm run dev
+    - run: cd client & yarn
+    - run: cd .. & yarn dev
