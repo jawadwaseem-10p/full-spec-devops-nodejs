@@ -33,5 +33,5 @@ jobs:
         usedocker: true
     - run: npm install
     - run: npm i -g nodemon
-    - run: cd client
+    - run: cd client & npm install
     - run: cd .. & npm run dev
