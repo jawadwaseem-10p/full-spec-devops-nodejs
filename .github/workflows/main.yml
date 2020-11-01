@@ -23,12 +23,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{matrix.node-version}}
       - uses: actions/setup-node@v1
-        with:
-          node-version: ${{matrix.node_version}}
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
-          heroku_email: "bitpocketer@gmail.com"
-          usedocker: true
       - run: yarn
       - run: cd client && yarn
 
