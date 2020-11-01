@@ -29,31 +29,9 @@ jobs:
       env:
         HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
       run: heroku container:login  
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-        heroku_app_name: "full-spec-devops-nodejs"
-        heroku_email: "bitpocketer@gmail.com"
-        usedocker: true
-
-  deploy:
-    
-    runs-on: ubuntu-latest
-    
-    strategy: 
-      matrix:
-        node-version: [14.x]
-    
-    steps:
-      - uses: actions/checkout@v2
-      - name: Login to herok container registry
-        env:
+    - name: pushing to heroku container
+        env: 
           HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
-        run: heroku container:push -a ${{secrets.HEROKU_APP_NAME}} web
-      - name: release
-        env:
-          HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
-        run: heroku container:release -a ${{secrets.HEROKU_APP_NAME}} web
+        run: heroku container:push -a ${{secrets.HEROKU_APP_NAME}} 
+    
 
