@@ -28,10 +28,10 @@ jobs:
     - name: Login to heroku container registry
       env:
         HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
-      run: heroku login  
+      run: heroku container:login  
     - name: pushing to heroku container
       env: 
         HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
-      run: git push heroku master
+        run: git push heroku master
     
 
