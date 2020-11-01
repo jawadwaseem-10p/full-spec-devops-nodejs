@@ -30,8 +30,8 @@ jobs:
         HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
       run: heroku container:login  
     - name: pushing to heroku container
-        env: 
-          HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
-        run: heroku container:push -a ${{secrets.HEROKU_APP_NAME}} 
+      env: 
+        HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
+      run: heroku container:push -a ${{secrets.HEROKU_APP_NAME}} 
     
 
