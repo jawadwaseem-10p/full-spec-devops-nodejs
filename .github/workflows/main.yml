@@ -14,38 +14,26 @@ on:
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         node-version: [14.x]
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{matrix.node-version}}
-      - uses: actions/setup-node@v1
-      - run: yarn
-      - run: cd client && yarn
-
-  # deploy:
-
-  #   runs-on: ubuntu-latest
-
-  #   strategy:
-  #     matrix:
-  #       node-version: [14.x]
-
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: Login to heroku container registry
-  #     env:
-  #       HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
-  #     run: heroku container:login  
-  #   - name: Build and push
-  #     env:
-  #       HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
-  #     run: heroku container:push -a ${{secrets.HEROKU_APP_NAME}} web
-  #   - name: Release
-  #     env:
-  #       HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
-  #     run: heroku container:release -a ${{secrets.HEROKU_APP_NAME}} web
-      
+    - uses: actions/checkout@v2
+    - run: yarn
+    - run: cd client && yarn
+    - name: Login to heroku container registry
+      env:
+        HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
+      run: heroku container:login  
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_app_name: "full-spec-devops-nodejs"
+        heroku_email: "bitpocketer@gmail.com"
+        usedocker: true
