@@ -32,7 +32,6 @@ jobs:
     - name: pushing to heroku container
       env: 
         HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
-      run: heroku create
-      run: git push heroku master
+      run: heroku create && git push heroku master
     
 
