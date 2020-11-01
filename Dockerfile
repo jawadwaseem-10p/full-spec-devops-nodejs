@@ -11,7 +11,7 @@ WORKDIR /usr/src/app/client
 RUN pwd
 
 RUN yarn
-RUN yarn build
+RUN yarn run build
 WORKDIR /usr/src/app
 COPY . .
 
