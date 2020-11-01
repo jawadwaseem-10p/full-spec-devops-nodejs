@@ -31,6 +31,4 @@ jobs:
         heroku_app_name: "full-spec-devops-nodejs"
         heroku_email: "bitpocketer@gmail.com"
         usedocker: true
-    - run: yarn
-    - run: cd client & yarn
-    - run: cd .. & npm run start
+    - run: npm run dev:server
