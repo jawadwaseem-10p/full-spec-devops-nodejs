@@ -16,5 +16,5 @@ RUN yarn run build
 WORKDIR /usr/src/app
 
 EXPOSE 5000
-
+RUN yarn test
 CMD ["yarn", "start"]
