@@ -11,7 +11,7 @@ WORKDIR /usr/src/app/client
 RUN pwd
 
 RUN yarn
-
+WORKDIR /usr/src/app
 COPY . .
 
 EXPOSE 5000
