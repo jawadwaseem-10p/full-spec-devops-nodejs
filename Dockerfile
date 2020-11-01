@@ -2,7 +2,7 @@ FROM node:14
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY . .
 
 RUN yarn
 
@@ -11,9 +11,9 @@ WORKDIR /usr/src/app/client
 RUN pwd
 
 RUN yarn
+WORKDIR /usr/src/app/client
 RUN yarn run build
 WORKDIR /usr/src/app
-COPY . .
 
 EXPOSE 5000
 
